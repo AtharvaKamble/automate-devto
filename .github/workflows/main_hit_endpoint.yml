@@ -19,4 +19,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X POST https://devtoautomate.herokuapp.com/
+        args: -X POST {{ secret.END_POINT_NAME }}
