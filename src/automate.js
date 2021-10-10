@@ -79,10 +79,10 @@ app.get("/", (req, res) => {
 
 app.post("/updatePost", async (req, res) => {
   try {
-    // await updatePost();
+    await updatePost();
     res.status(200).send({ status: "OK" });
   } catch (e) {
-    res.send(req);
+    res.send(e);
   }
 });
 
