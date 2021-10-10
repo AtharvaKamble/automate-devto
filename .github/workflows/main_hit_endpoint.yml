@@ -16,6 +16,6 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     steps:
-    - name: curl
+    - name: wei/curl@v1
       with:
         args: -X POST https://devtoautomate.herokuapp.com/
