@@ -69,7 +69,9 @@ async function updatePost() {
 }
 
 app.get("/", (req, res) => {
-  res.send("<h3>Automate dev.to blogs</h3>").status(200);
+  const htmlMessage =
+    "<h3>Automate dev.to blogs</h3><style>@import url('https://fonts.googleapis.com/css2?family=Karla:wght@600&display=swap'); h3 {font-family: 'Karla', sans-serif;}</style>";
+  res.send(htmlMessage).status(200);
 });
 
 app.post("/updatePost", async (req, res) => {
