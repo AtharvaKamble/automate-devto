@@ -2,12 +2,15 @@ import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
 import chalk from "chalk";
+import cors from "cors";
 
 dotenv.config();
 
 const app = express();
 const API_KEY = process.env.DEVTO_API_DEV;
 const port = process.env.PORT || 3000;
+
+app.use(cors());
 
 async function retrievePosts() {
   const names = [];
@@ -80,7 +83,5 @@ app.post("/updatePost", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(
-    `Server is up and running on ${chalk.yellow(`http://localhost:${port}`)}`
-  );
+  console.log(`Server is up and running on ${chalk.yellow(port)}`);
 });
