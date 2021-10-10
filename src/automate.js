@@ -54,11 +54,14 @@ async function updatePost() {
         "api-key": API_KEY,
       },
     });
-    console.log(
-      `Published post: ${chalk.yellow(
-        data.title
-      )}\nYou can check the post at ${chalk.cyan(data.url)}`
-    );
+
+    const outputString = `Published post: ${chalk.yellow(
+      data.title
+    )}\nYou can check the post at ${chalk.cyan(data.url)}`;
+
+    console.log(outputString);
+
+    return outputString;
   } catch (error) {
     console.log(error);
     return;
@@ -66,12 +69,12 @@ async function updatePost() {
 }
 
 app.get("/", (req, res) => {
-  res.send({ test: "GET ok tested, perfecto" });
+  res.send("<h3>Automate dev.to blogs</h3>").status(200);
 });
 
 app.post("/updatePost", async (req, res) => {
   await updatePost();
-  res.send("Worked!");
+  res.status(200).send({ status: "OK" });
 });
 
 app.listen(port, () => {
