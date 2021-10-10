@@ -10,7 +10,7 @@ const app = express();
 const API_KEY = process.env.DEVTO_API_DEV;
 const port = process.env.PORT || 3000;
 
-app.use(cors());
+app.use(cors.cors());
 
 async function retrievePosts() {
   const names = [];
