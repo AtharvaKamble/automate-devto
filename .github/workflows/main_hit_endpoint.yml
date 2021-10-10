@@ -17,6 +17,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: curl
-      uses: curl/curl@7.79.1
       with:
-        args: -X POST http://https://devtoautomate.herokuapp.com/
+        args: -X POST https://devtoautomate.herokuapp.com/
