@@ -1,11 +1,13 @@
+import express from "express";
 import axios from "axios";
-import chalk from "chalk";
 import dotenv from "dotenv";
-import request from "request";
+import chalk from "chalk";
 
 dotenv.config();
 
+const app = express();
 const API_KEY = process.env.DEVTO_API_DEV;
+const port = process.env.PORT || 3000;
 
 async function retrievePosts() {
   const names = [];
@@ -52,11 +54,28 @@ async function updatePost() {
         "api-key": API_KEY,
       },
     });
-    console.log(data);
+    console.log(
+      `Published post: ${chalk.yellow(
+        data.title
+      )}\nYou can check the post at ${chalk.cyan(data.url)}`
+    );
   } catch (error) {
     console.log(error);
     return;
   }
 }
 
-updatePost();
+app.get("/", (req, res) => {
+  res.send({ test: "GET ok tested, perfecto" });
+});
+
+app.post("/updatePost", async (req, res) => {
+  await updatePost();
+  res.send("Worked!");
+});
+
+app.listen(port, () => {
+  console.log(
+    `Server is up and running on ${chalk.yellow(`http://localhost:${port}`)}`
+  );
+});
