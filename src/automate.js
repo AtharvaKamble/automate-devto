@@ -78,8 +78,12 @@ app.get("/", (req, res) => {
 });
 
 app.post("/updatePost", async (req, res) => {
-  await updatePost();
-  res.status(200).send({ status: "OK" });
+  try {
+    await updatePost();
+    res.status(200).send({ status: "OK" });
+  } catch (e) {
+    res.send(e);
+  }
 });
 
 app.listen(port, () => {
