@@ -4,9 +4,6 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  push:
-    branches:
-      - main
   schedule:
     - cron: "*/5 * * * *"
 
@@ -18,7 +15,5 @@ jobs:
   curl:
     runs-on: ubuntu-latest
     steps:
-      - name: curl
-        uses: wei/curl@v1
-        with:
-          args: -X POST ${{ secrets.END_POINT_NAME }}
+      - name: Trigger a publish
+        run: curl -X POST ${{ secrets.END_POINT_NAME }}
