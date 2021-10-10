@@ -19,4 +19,4 @@ jobs:
     - name: curl
       uses: wei/curl@v1
       with:
-        args: -X POST {{ secret.END_POINT_NAME }}
+        args: -X POST ${{ secret.END_POINT_NAME }}
