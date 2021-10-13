@@ -15,8 +15,8 @@ jobs:
       image: node:stretch-slim
 
     steps:
-      - name: Initialize Node.js project
-        run: npm init -y
+      - uses: actions/checkout@v2
+
       - name: Install packages
         run: npm i
       - name: Run
