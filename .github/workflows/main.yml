@@ -1,0 +1,18 @@
+name: AUTOMATE_DEVTO
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+
+jobs:
+  start:
+    name: Start
+    runs-on: ubuntu-latest
+    container:
+      image: node:stretch-slim
+
+    steps:
+      - name: Install packages
+        run: npm i
+      - name: Run
+        run: npm start:test_run
