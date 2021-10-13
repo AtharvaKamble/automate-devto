@@ -2,7 +2,7 @@
   "name": "automate-devto",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/automate.js",
   "scripts": {
     "start": "node src/automate.js",
     "start:test_run": "node src/automateTestRun.js",
