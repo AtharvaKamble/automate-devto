@@ -1,6 +1,9 @@
 name: AUTOMATE_DEVTO
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     - cron: "*/5 * * * *"
 
