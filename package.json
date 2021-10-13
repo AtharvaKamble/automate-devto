@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/automate.js",
+    "start:test_run": "node src/automateTestRun.js",
     "dev": "node src/automate.js"
   },
   "type": "module",
