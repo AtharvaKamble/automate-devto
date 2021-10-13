@@ -20,4 +20,4 @@ jobs:
       - name: Install packages
         run: npm i
       - name: Run
-        run: npm run startTestRun
+        run: npm run startTestRun ${{ secrets.DEVTO_API_KEY }}
